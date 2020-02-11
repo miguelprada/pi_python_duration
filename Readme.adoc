@@ -1,14 +1,45 @@
-
-# Setup
+= Setup
 
 Requires the following packages (install with `apt-get`): `python3`, `python3-venv` .
 
 And then run the following commands:
 
-```bash
+[source, shell]
+----
 python3 -m venv venv
 source venv/bin/activate
 pip install --upgrade pip
 pip install -r src/pi_sample_duration/requirements.txt
-```
+python src/pi_sample_duration/setup.py develop
+----
 
+Last line should be verified although...
+
+== Launch the program
+
+[source, shell]
+----
+./run_pi test_data/input/data_in.csv out_folder
+----
+
+We assume `out_folder` exists.
+
+== Docker management
+
+=== Docker image generation
+
+Run the following command in order to create the docker image for this PI:
+
+[source, shell]
+----
+docker build . -t pi_sample_duration
+----
+
+=== Launch the docker image
+
+Assuming the folder `test_data/input/` contains the input data, and that the directory `out_folder/` is created, and will contain the PI output:
+
+[source, shell]
+----
+docker run --rm -v $PWD/test_data/input:/in -v $PWD/out_folder:/out pi_sample_duration ./run_pi /in/data_in.csv /out
+----

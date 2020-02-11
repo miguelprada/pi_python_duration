@@ -14,6 +14,7 @@ Distributed under the Non-Profit Open Software License 3.0 (NPOSL-3.0).
 import pandas as pd
 import sys
 from termcolor import colored
+import os
 
 def compute_duration(file_ja_name):
 
@@ -45,9 +46,9 @@ def store_result(file_out, value):
 
     return True
 
-USAGE = """usage: run_pi file_in file_out
+USAGE = """usage: run_pi file_in fodler_out
 file_in: csv file containing at least a timestamp column
-file_out: yaml file in which the sample duration wil lbe written
+folder_out: folder where the PI yaml file yaml file will be stored
 """
 
 
@@ -58,13 +59,29 @@ def main():
         return -1
 
     file_in = sys.argv[1]
-    file_out = sys.argv[2]
+    folder_out = sys.argv[2]
+
+    # check input parameters are good
+    if not os.path.exists(file_in):
+        print(colored("Input file {} does not exist".format(file_in), "red"))
+        return -1
+    if not os.path.isfile(file_in):
+        print(colored("Input path {} is not a file".format(file_in), "red"))
+        return -1
+
+    if not os.path.exists(folder_out):
+        print(colored("Output folder {} does not exist".format(folder_out), "red"))
+        return -1
+    if not os.path.isfile(file_in):
+        print(colored("Output path {} is not a folder".format(file_in), "red"))
+        return -1
 
     duration = compute_duration(file_in)
 
     if duration == -1:
         return -1
 
+    file_out = folder_out + "/pi_duration.yaml"
     if not store_result(file_out, duration):
         return -1
     print (colored("duration: {} stored in {}".format(duration, file_out), "green"))
