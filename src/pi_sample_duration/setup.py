@@ -22,8 +22,8 @@ setup(
     long_description=long_description,
     author='Anthony Remazeilles',
     author_email='anthony.remazeilles@tecnalia.com',
-    url='https://github.com/tobedefined',
-    license='Beerware',
+    url='https://github.com/',
+    license='Apache 2.0',
     packages=['pi_sample_duration'],
 #   no dependencies in this example
 #   install_requires=[

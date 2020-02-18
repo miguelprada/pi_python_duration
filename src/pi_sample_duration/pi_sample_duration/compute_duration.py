@@ -6,7 +6,7 @@
 @brief Compute an experiment duration based on a jointAngle File information
 
 Copyright (C) 2020 Tecnalia Research and Innovation
-Distributed under the Non-Profit Open Software License 3.0 (NPOSL-3.0).
+Distributed under the pache 2.0 license.
 
 """
 
@@ -15,6 +15,7 @@ import pandas as pd
 import sys
 from termcolor import colored
 import os
+
 
 def compute_duration(file_ja_name):
 
@@ -26,7 +27,7 @@ def compute_duration(file_ja_name):
 
     print("\n")
     print(data.head())
-    
+
     if 'timestamp' not in list(data):
         print(colored("Missing column timestamp", "red"))
         return -1
@@ -37,6 +38,7 @@ def compute_duration(file_ja_name):
     duration = time_end - time_start
 
     return duration
+
 
 def store_result(file_out, value):
 
