@@ -48,6 +48,7 @@ def store_result(file_out, value):
 
     return True
 
+
 USAGE = """usage: run_pi file_in fodler_out
 file_in: csv file containing at least a timestamp column
 folder_out: folder where the PI yaml file yaml file will be stored
@@ -86,5 +87,5 @@ def main():
     file_out = folder_out + "/pi_duration.yaml"
     if not store_result(file_out, duration):
         return -1
-    print (colored("duration: {} stored in {}".format(duration, file_out), "green"))
+    print(colored("duration: {} stored in {}".format(duration, file_out), "green"))
     return 0

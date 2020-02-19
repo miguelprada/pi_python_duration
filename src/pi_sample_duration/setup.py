@@ -25,11 +25,6 @@ setup(
     url='https://github.com/',
     license='Apache 2.0',
     packages=['pi_sample_duration'],
-#   no dependencies in this example
-#   install_requires=[
-#       'dependency==1.2.3',
-#   ],
-
     scripts=['script/run_pi'],
     include_package_data=True,
     classifiers=[
