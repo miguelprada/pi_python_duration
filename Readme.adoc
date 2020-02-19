@@ -1,6 +1,7 @@
 = PI_sample_duration
 
 image::https://img.shields.io/:license-Apache%202.0-blue.svg[link=https://opensource.org/licenses/Apache-2.0]
+image:https://travis-ci.org/eurobench/pi_python_duration.svg?branch=master["Build Status", link="https://travis-ci.org/eurobench/pi_python_duration"]
 
 Copyright Tecnalia 2020
 
