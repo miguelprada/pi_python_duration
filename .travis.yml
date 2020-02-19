@@ -11,8 +11,8 @@ install:
 
 script:
   - pycodestyle src/pi_sample_duration
-  - pytest --verbose --capture=no src/sample_duration
-  - pip install .
+  - pytest --verbose --capture=no
+  - pip install src/pi_sample_duration
 
 notifications:
   email: false
