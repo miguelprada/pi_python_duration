@@ -3,6 +3,7 @@
 import unittest
 from pi_sample_duration import add
 
+
 class PISampleDurationTest(unittest.TestCase):
 
     def test_my_add(self):

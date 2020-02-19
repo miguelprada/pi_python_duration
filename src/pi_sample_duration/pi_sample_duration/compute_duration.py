@@ -22,7 +22,9 @@ def compute_duration(file_ja_name):
     try:
         data = pd.read_csv(file_ja_name)
     except FileNotFoundError as err:
-        print(colored("Could not load file {}: {}".format(file_ja_name, err), "red"))
+        print(colored(
+            "Could not load file {}: {}".format(file_ja_name, err),
+            "red"))
         return -1
 
     print("\n")
@@ -48,6 +50,7 @@ def store_result(file_out, value):
 
     return True
 
+
 USAGE = """usage: run_pi file_in fodler_out
 file_in: csv file containing at least a timestamp column
 folder_out: folder where the PI yaml file yaml file will be stored
@@ -72,7 +75,9 @@ def main():
         return -1
 
     if not os.path.exists(folder_out):
-        print(colored("Output folder {} does not exist".format(folder_out), "red"))
+        print(colored(
+            "Output folder {} does not exist".format(folder_out),
+            "red"))
         return -1
     if not os.path.isfile(file_in):
         print(colored("Output path {} is not a folder".format(file_in), "red"))
@@ -86,5 +91,7 @@ def main():
     file_out = folder_out + "/pi_duration.yaml"
     if not store_result(file_out, duration):
         return -1
-    print (colored("duration: {} stored in {}".format(duration, file_out), "green"))
+    print(colored(
+        "duration: {} stored in {}".format(duration, file_out),
+        "green"))
     return 0
